@@ -1,0 +1,26 @@
+%h1
+  Editando Edición
+  = @edition.numero
+%div
+  = image_tag @edition.portada
+  
+= simple_form_for @edition, :html => { :multipart => true } do |f|
+  %fieldset.inputs
+    %ol#sections
+      - @edition.sections.each do |section|
+        %li
+          
+          .sep_section
+            %h2= section.nombre
+            = f.simple_fields_for :section_images  , @edition.get_section_image_for(section) do |ff|
+              = ff.input :banner, :label => "Imagen de Sección"
+        
+          %ul
+            .articles
+              - section.articles_for_edition(@edition).each do |article|
+                %h3= article.titulo
+                = f.simple_fields_for :articles, article do |fff|
+                  = fff.input :page_number, :label => "Número de página"
+                  = fff.input :banner, :label => "Imagen del artículo"
+  %fieldset.buttons
+    = f.submit "Enviar"

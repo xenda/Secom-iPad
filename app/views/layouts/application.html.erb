@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecomIpad</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div id="header">
+  <h1 id="site_title">Kato</h1>
+  <ul id="tabs">
+    <li id="categories" class=""><a href="/editions">Ediciones</a></li>
+  </ul>
+  <p id="utility_nav">
+    <span class="current_user">Administración</span><a href="#">Salir</a>
+  </p>
+</div>
+
+<div id="title_bar">
+  <h2 id="page_title">Actualización de ediciones</h2>
+  <div class="action_items"></div>
+</div>
+
+<div class="without_sidebar" id="active_admin_content">
+  <div class="flashes">
+    <div class="flash flash_notice">Signed in successfully.</div>
+  </div>
+  <div id="main_content_wrapper">
+    <div id="main_content">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+<div id="footer">
+
+</div>
+
+
+
+
+</body>
+</html>

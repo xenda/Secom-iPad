@@ -1,0 +1,3 @@
+%ul#editions
+- @editions.each do |edition|
+  %li= link_to edition.numero, edit_edition_path(edition.id)
