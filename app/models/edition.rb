@@ -23,6 +23,10 @@ class Edition < ActiveRecord::Base
   # def to_param
   #   self.numero.to_s
   # end
+  
+  def update_complete?
+    self.articles.where("page_number IS NULL").all.empty?
+  end
 
   def get_section_image_for(section)
     self.section_images.find_or_create_by_seccion_id(section.id)

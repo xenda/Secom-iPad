@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    @editions = Edition.all
+    @editions = Edition.order("created_at DESC").all
   end
   
 end

@@ -1,8 +1,8 @@
 %h1
-  Editando Edición
-  = @edition.numero
-%div
-  = image_tag @edition.portada
+  = image_tag @edition.portada, :width => 100
+  %div
+    Editando Edición
+    = @edition.numero
   
 = simple_form_for @edition, :html => { :multipart => true } do |f|
   %fieldset.inputs
@@ -12,8 +12,12 @@
           
           .sep_section
             %h2= section.nombre
-            = f.simple_fields_for :section_images  , @edition.get_section_image_for(section) do |ff|
+            = f.simple_fields_for :section_images , @edition.get_section_image_for(section) do |ff|
+              - section_image = @edition.get_section_image_for(section)
               = ff.input :banner, :label => "Imagen de Sección"
+              - if section_image.banner_file_name
+                = link_to section_image.banner.url, :target => "_blank" do
+                  = image_tag section_image.banner.url, :width => 50
         
           %ul
             .articles
@@ -22,5 +26,9 @@
                 = f.simple_fields_for :articles, article do |fff|
                   = fff.input :page_number, :label => "Número de página"
                   = fff.input :banner, :label => "Imagen del artículo"
+                  - if article.banner_file_name
+                    = link_to article.banner.url, :target => "_blank" do
+                      = image_tag article.banner.url, :width => 50
+                  
   %fieldset.buttons
     = f.submit "Enviar"

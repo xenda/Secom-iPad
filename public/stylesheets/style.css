@@ -1,15 +1,20 @@
-/* @override http://secom-ipad.dev/stylesheets/style.css?1308790663 */
+/* @override 
+	http://secom-ipad.dev/stylesheets/style.css?1308790663
+	http://secom-ipad.dev/stylesheets/style.css?1308790997
+	http://secom-ipad.dev/stylesheets/style.css?1309441719
+	http://secom-ipad.dev/stylesheets/style.css?1309442294
+*/
 
 /* Active Admin CSS */
 
 #sections li ul div.articles {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 #sections li div.sep_section {
-	margin-bottom: 20px;
-	border-bottom: 2px dotted rgba(108,131,112,0.35);
-	padding-bottom: 20px;
+	border-bottom: 2px dashed #d9d0d0;
+	padding-bottom: 10px;
+	overflow: auto;
 }
 
 #sections li ul div.articles div.input {
@@ -101,6 +106,11 @@ h3 {
   font-size: 1.5em;
   line-height: 1;
   margin-bottom: 1em; }
+
+#sections li ul div.articles h3 {
+	margin-bottom: 5px;	
+	margin-top: 30px;
+}
 
 h4 {
   font-size: 1.2em;
@@ -1453,3 +1463,43 @@ table.dashboard {
   padding: 0; }
   .columns .column {
     float: left; }
+
+#main_content li {
+	overflow: auto;
+	list-style: none;
+	margin-top: 2px;
+}
+
+#main_content li a {
+	display: block;
+	float: left;
+}
+
+#sections li div.sep_section h2 {
+	color: #d47673;
+	font-size: 26px;
+}
+
+input.numeric {
+	width: 100px !important;
+}
+
+#sections li ul div.articles h3 {
+	color: #ff8d80;
+}
+#main_content h1 {
+	overflow: hidden;
+}
+#main_content h1 img {
+	float: left;
+}
+
+#main_content h1 div {
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+#main_content li a img {
+	float: left;
+	margin-right: 10px;
+}

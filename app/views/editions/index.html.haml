@@ -1,3 +1,6 @@
 %ul#editions
 - @editions.each do |edition|
-  %li= link_to edition.numero, edit_edition_path(edition.id)
+  %li
+    = link_to edit_edition_path(edition.id) do
+      = image_tag @edition.portada
+    = link_to edition.numero, edit_edition_path(edition.id)
