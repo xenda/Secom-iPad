@@ -9,11 +9,23 @@ class Edition < ActiveRecord::Base
   has_many :articles, :foreign_key => "edicion_id"
   has_many :section_images, :foreign_key => "edicion_id"
 
+  has_many :structures, :foreign_key => "edicion_id"
+
   accepts_nested_attributes_for :section_images, :articles
 
 
+  def update_structures
+
+    self.secciones.each do |s|
+      structure = Structure.find_or_create_by_seccion_id_and_edicion_id(a.id,self.id)
+      structure.page_number = a.page_number
+      structure.save    
+    end
+    
+  end
+
   def seccion_number(seccion)
-    s=  self.structures.find_by_seccion_id(seccion.id)
+    s = self.structures.find_by_seccion_id(seccion.id)
     return 0 unless s
     return s.page_number
   end
